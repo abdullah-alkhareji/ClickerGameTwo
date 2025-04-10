@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Gun, guns } from '../../assets/guns';
+import guns, { Guns } from '../../assets/guns';
 
 @Component({
   selector: 'app-guns',
@@ -9,18 +9,21 @@ import { Gun, guns } from '../../assets/guns';
   styleUrl: './guns.component.css',
 })
 export class GunsComponent {
-  @Input() gun: Gun;
+  @Input() gun: Guns;
   @Input() cash: number = 0;
-  @Input() currentGun: Gun = guns[0];
-  @Output() gunSelected = new EventEmitter<Gun>();
+  @Input() currentGun: Guns = guns[0];
+  @Output() gunSelected = new EventEmitter<Guns>();
 
   constructor() {
     this.gun = {
       name: '',
       description: '',
-      image: '',
+      img: '',
       price: 0,
       damage: 0,
+      id: 0,
+      multiplyer: 0,
+      equipped: false,
     };
   }
 

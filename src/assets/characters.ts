@@ -1,3 +1,4 @@
+
 export interface Characters {
   id: number;
   name: string;
@@ -83,3 +84,4 @@ const characters: Characters[] = [
 ];
 
 export default characters;
+

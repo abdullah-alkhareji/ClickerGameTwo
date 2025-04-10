@@ -3,7 +3,7 @@ import { ClickerComponent } from '../clicker/clicker.component';
 import { CounterComponent } from '../counter/counter.component';
 import { FirePowerComponent } from '../fire-power/fire-power.component';
 import { GunsAreaComponent } from '../guns-area/guns-area.component';
-import { Gun, guns } from '../../assets/guns';
+import guns, { Guns } from '../../assets/guns';
 import { CashComponent } from '../cash/cash.component';
 import { interval, Subscription } from 'rxjs';
 import { Characters } from '../../assets/characters';
@@ -28,15 +28,14 @@ export class ClickingAreaComponent {
   charachters: Characters[] = [];
 
   guns = guns;
-  currentGun: Gun = this.guns[0];
+  currentGun: Guns = this.guns[0];
   firePower = this.currentGun.damage;
   cash = 0;
   gunsArea = this.guns.filter((gun) => {
-    console.log({ gun }, this.cash);
     return (
       gun.price <= this.cash &&
       gun.name !== this.currentGun.name &&
-      this.guns.indexOf(gun) > this.guns.indexOf(this.currentGun)
+      gun.equipped === false
     );
   });
 
@@ -52,11 +51,10 @@ export class ClickingAreaComponent {
 
   onFilterGuns() {
     this.gunsArea = this.guns.filter((gun) => {
-      console.log({ gun }, this.cash);
       return (
         gun.price <= this.cash &&
         gun.name !== this.currentGun.name &&
-        this.guns.indexOf(gun) > this.guns.indexOf(this.currentGun)
+        gun.equipped === false
       );
     });
   }
@@ -66,14 +64,19 @@ export class ClickingAreaComponent {
       this.startAutoScore();
     this.kills = this.kills + this.firePower;
     this.cash = this.cash + this.firePower;
-    this.onFilterGuns();
+    this.onFilterGuns(); 
+    this.guns.forEach((theGun) => {
+      if (theGun.id === gun.id) {
+        theGun.equipped = true;
+      }
+    });
   }
 
   onFirePowerChange(firePower: number) {
     this.firePower = this.firePower + firePower;
   }
 
-  onGunSelected(gun: Gun) {
+  onGunSelected(gun: Guns) {
     this.currentGun = gun;
     this.onFirePowerChange(gun.damage);
     this.cash = this.cash - gun.price;
