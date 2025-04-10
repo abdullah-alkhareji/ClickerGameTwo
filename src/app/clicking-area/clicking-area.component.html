@@ -1,0 +1,23 @@
+<div
+  class="h-full w-screen flex flex-col justify-center items-center gap-y-10 relative"
+>
+  <app-clicker [kills]="kills" (killsChange)="onKillsChange()"></app-clicker>
+  <app-counter [kills]="kills"></app-counter>
+  <app-fire-power
+    class="absolute top-10 right-10"
+    [firePower]="firePower"
+    (firePowerChange)="onFirePowerChange($event)"
+  ></app-fire-power>
+  <app-cash
+    class="absolute top-10 left-10"
+    [cash]="cash"
+    (cashChange)="onCashChange($event)"
+  ></app-cash>
+  <app-guns-area
+    class="w-full absolute bottom-0"
+    [cash]="cash"
+    [currentGun]="currentGun"
+    (gunSelected)="onGunSelected($event)"
+    [guns]="gunsArea"
+  ></app-guns-area>
+</div>

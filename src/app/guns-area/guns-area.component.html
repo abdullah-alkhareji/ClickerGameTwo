@@ -1,0 +1,10 @@
+<div class="h-50 w-full grid grid-cols-3 gap-x-10 p-4">
+  @for (gun of guns; track gun.name) {
+  <app-guns
+    [gun]="gun"
+    (gunSelected)="onGunSelected($event)"
+    [cash]="cash"
+    [currentGun]="currentGun"
+  ></app-guns>
+  }
+</div>

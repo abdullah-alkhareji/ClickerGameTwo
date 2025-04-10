@@ -1,0 +1,18 @@
+<div
+  class="bg-black/30 rounded-xl w-full flex items-center h-40 gap-x-4 border border-white cursor-pointer"
+  (click)="onGunSelected()"
+>
+  <img
+    src="{{ gun.image }}"
+    alt="gun"
+    class="aspect-square h-40 bg-white rounded-xl"
+  />
+  <div class="flex flex-col gap-y-2">
+    <p class="text-white text-2xl font-bold">{{ gun.name }}</p>
+    <p class="text-white text-sm">
+      {{ gun.description }}
+    </p>
+    <p class="text-white text-sm">Price: {{ gun.price }}</p>
+    <p class="text-white text-sm">Damage: {{ gun.damage }}</p>
+  </div>
+</div>
