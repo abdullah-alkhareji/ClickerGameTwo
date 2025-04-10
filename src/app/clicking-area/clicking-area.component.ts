@@ -6,7 +6,7 @@ import { GunsAreaComponent } from '../guns-area/guns-area.component';
 import guns, { Guns } from '../../assets/guns';
 import { CashComponent } from '../cash/cash.component';
 import { interval, Subscription } from 'rxjs';
-import { Characters } from '../../assets/characters';
+import characters, { Characters } from '../../assets/characters';
 
 @Component({
   selector: 'app-clicking-area',
@@ -25,7 +25,8 @@ export class ClickingAreaComponent {
   kills = 0;
   killsInterval$: Subscription | undefined;
 
-  charachters: Characters[] = [];
+  charachters: Characters[] = characters;
+  currentCharachters: Characters[] = [];
 
   guns = guns;
   currentGun: Guns = this.guns[0];
@@ -41,7 +42,14 @@ export class ClickingAreaComponent {
 
   startAutoScore() {
     this.killsInterval$ = interval(1000).subscribe(() => {
-      this.kills += this.charachters.reduce((sum, t) => sum + t.damage, 0);
+      this.kills += this.currentCharachters.reduce(
+        (sum, t) => sum + t.damage,
+        0
+      );
+      this.cash += this.currentCharachters.reduce(
+        (sum, t) => sum + t.damage,
+        0
+      );
     });
     this.charachters.forEach((element) => {
       element.timer - 1;
@@ -62,6 +70,7 @@ export class ClickingAreaComponent {
   onKillsChange() {
     if (!this.killsInterval$ && this.charachters.length > 0)
       this.startAutoScore();
+    console.log(this.currentCharachters);
     this.kills = this.kills + this.firePower;
     this.cash = this.cash + this.firePower;
     this.onFilterGuns();
@@ -84,7 +93,9 @@ export class ClickingAreaComponent {
   }
 
   onCharacterSelected(character: Characters) {
-    this.charachters.push(character);
+    this.currentCharachters.push(character);
+    this.cash = this.cash - character.price;
+    this.onFilterGuns();
   }
 
   onCashChange(cash: number) {
