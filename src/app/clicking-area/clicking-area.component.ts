@@ -64,12 +64,7 @@ export class ClickingAreaComponent {
       this.startAutoScore();
     this.kills = this.kills + this.firePower;
     this.cash = this.cash + this.firePower;
-    this.onFilterGuns(); 
-    this.guns.forEach((theGun) => {
-      if (theGun.id === gun.id) {
-        theGun.equipped = true;
-      }
-    });
+    this.onFilterGuns();
   }
 
   onFirePowerChange(firePower: number) {
@@ -81,6 +76,11 @@ export class ClickingAreaComponent {
     this.onFirePowerChange(gun.damage);
     this.cash = this.cash - gun.price;
     this.onFilterGuns();
+    this.guns.forEach((theGun) => {
+      if (theGun.id === gun.id) {
+        theGun.equipped = true;
+      }
+    });
   }
 
   onCharacterSelected(character: Characters) {
