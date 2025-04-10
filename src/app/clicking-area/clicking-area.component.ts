@@ -5,6 +5,8 @@ import { FirePowerComponent } from '../fire-power/fire-power.component';
 import { GunsAreaComponent } from '../guns-area/guns-area.component';
 import guns, { Guns } from '../../assets/guns';
 import { CashComponent } from '../cash/cash.component';
+import { interval, Subscription } from 'rxjs';
+import { Characters } from '../../assets/characters';
 
 @Component({
   selector: 'app-clicking-area',
@@ -21,6 +23,10 @@ import { CashComponent } from '../cash/cash.component';
 })
 export class ClickingAreaComponent {
   kills = 0;
+  killsInterval$: Subscription | undefined;
+
+  charachters: Characters[] = [];
+
   guns = guns;
   currentGun: Guns = this.guns[0];
   firePower = this.currentGun.damage;
@@ -33,6 +39,16 @@ export class ClickingAreaComponent {
     );
   });
 
+  startAutoScore() {
+    this.killsInterval$ = interval(1000).subscribe(() => {
+      this.kills += this.charachters.reduce((sum, t) => sum + t.damage, 0);
+    });
+    this.charachters.forEach((element) => {
+      element.timer - 1;
+    });
+    this.charachters = this.charachters.filter((t) => t.timer !== 0);
+  }
+
   onFilterGuns() {
     this.gunsArea = this.guns.filter((gun) => {
       return (
@@ -44,6 +60,8 @@ export class ClickingAreaComponent {
   }
 
   onKillsChange() {
+    if (!this.killsInterval$ && this.charachters.length > 0)
+      this.startAutoScore();
     this.kills = this.kills + this.firePower;
     this.cash = this.cash + this.firePower;
     this.onFilterGuns();
@@ -63,6 +81,10 @@ export class ClickingAreaComponent {
         theGun.equipped = true;
       }
     });
+  }
+
+  onCharacterSelected(character: Characters) {
+    this.charachters.push(character);
   }
 
   onCashChange(cash: number) {
