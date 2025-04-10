@@ -6,5 +6,11 @@
     [cash]="cash"
     [currentGun]="currentGun"
   ></app-guns>
-  }
+  } @for (charachter of charachters; track charachter.id) { @if
+  (charachter.price <= cash) {
+  <app-charachters
+    [charachter]="charachter"
+    (charachterSelected)="onCharachterSelected($event)"
+  ></app-charachters>
+  } }
 </div>

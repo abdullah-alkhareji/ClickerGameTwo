@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import guns, { Guns } from '../../assets/guns';
+import { Characters } from '../../assets/characters';
 
 @Component({
   selector: 'app-guns',

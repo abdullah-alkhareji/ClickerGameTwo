@@ -1,0 +1,18 @@
+<div
+  class="bg-black/30 rounded-xl w-full flex items-center h-40 gap-x-4 border border-white cursor-pointer"
+  (click)="onCharachterSelected()"
+>
+  <img
+    src="{{ charachter.img }}"
+    alt="charachter"
+    class="aspect-square h-40 bg-white rounded-xl"
+  />
+  <div class="flex flex-col gap-y-2">
+    <p class="text-white text-2xl font-bold">{{ charachter.name }}</p>
+    <p class="text-white text-sm">
+      {{ charachter.ability }}
+    </p>
+    <p class="text-white text-sm">Price: {{ charachter.price }}</p>
+    <p class="text-white text-sm">Damage: {{ charachter.damage }}</p>
+  </div>
+</div>
