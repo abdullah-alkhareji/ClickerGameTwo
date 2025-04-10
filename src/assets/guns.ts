@@ -1,45 +1,166 @@
-export interface Gun {
+export interface Guns {
+  id: number;
   name: string;
-  description: string;
-  image: string;
-  price: number;
+  img?: string;
   damage: number;
+  price: number;
+  multiplyer: number;
+  description: string;
+  equipped: boolean;
 }
 
-export const guns: Gun[] = [
+const guns = [
   {
-    name: 'Pistola',
-    description: 'Pistola',
-    image:
-      'https://images.vexels.com/content/147962/preview/ak47-assault-rifle-grey-silhouette-594105.png',
-    price: 0,
+    id: 1,
+    name: 'None',
     damage: 1,
+    price: 0,
+    multiplyer: 0,
+    description: 'No weapon equipped',
+    equipped: true,
   },
   {
-    name: 'AK-47',
-    description:
-      'AK-47 is a powerful and versatile assault rifle that is known for its reliability and ease of use.',
-    image:
-      'https://images.vexels.com/content/147962/preview/ak47-assault-rifle-grey-silhouette-594105.png',
-    price: 20,
-    damage: 10,
+    id: 2,
+    name: 'Glock 9',
+    img: './assets/glock9.png',
+    damage: 2,
+    price: 50,
+    multiplyer: 0,
+    description: 'Glock 9',
+    equipped: false,
   },
   {
-    name: 'M4A1',
-    description:
-      'M4A1 is a powerful and versatile assault rifle that is known for its reliability and ease of use.',
-    image:
-      'https://static.vecteezy.com/system/resources/previews/057/447/839/non_2x/assault-rifle-resting-on-a-clean-transparent-background-showcasing-its-design-and-features-in-a-static-position-m4a1-assault-rifle-on-transparent-background-free-png.png',
+    id: 3,
+    name: 'MP5',
+    img: './assets/mp5.png',
+    damage: 5,
     price: 200,
-    damage: 20,
+    multiplyer: 0,
+    description: 'MP5',
+    equipped: false,
   },
   {
-    name: 'M4A1',
-    description:
-      'M4A1 is a powerful and versatile assault rifle that is known for its reliability and ease of use.',
-    image:
-      'https://static.vecteezy.com/system/resources/previews/057/447/839/non_2x/assault-rifle-resting-on-a-clean-transparent-background-showcasing-its-design-and-features-in-a-static-position-m4a1-assault-rifle-on-transparent-background-free-png.png',
-    price: 300,
-    damage: 30,
+    id: 4,
+    name: 'Spas-12',
+    img: './assets/spas12.png',
+    damage: 7,
+    price: 500,
+    multiplyer: 0,
+    description: 'Spas-12',
+    equipped: false,
+  },
+  {
+    id: 5,
+    name: 'AK-47',
+    img: './assets/ak47.png',
+    damage: 10,
+    price: 1000,
+    multiplyer: 0,
+    description: 'AK-47',
+    equipped: false,
+  },
+  {
+    id: 6,
+    name: 'Intervention',
+    img: './assets/intervention.png',
+    damage: 20,
+    price: 2000,
+    multiplyer: 0,
+    description: 'Intervention',
+    equipped: false,
+  },
+  {
+    id: 7,
+    name: 'M60',
+    img: './assets/m60.png',
+    damage: 40,
+    price: 5000,
+    multiplyer: 0,
+    description: 'M60',
+    equipped: false,
+  },
+  {
+    id: 8,
+    name: 'RPG',
+    img: './assets/rpg.png',
+    damage: 100,
+    price: 10000,
+    multiplyer: 0,
+    description: 'RPG',
+    equipped: false,
+  },
+
+  // Per-second guns
+  {
+    id: 9,
+    name: 'Desert Eagle',
+    img: './assets/deagle.png',
+    damage: 2,
+    price: 10000,
+    multiplyer: 0.2,
+    description: 'Desert Eagle',
+    equipped: false,
+  },
+  {
+    id: 10,
+    name: 'P90',
+    img: './assets/p90.png',
+    damage: 4,
+    price: 20000,
+    multiplyer: 0.5,
+    description: 'P90',
+    equipped: false,
+  },
+  {
+    id: 11,
+    name: 'AA-12',
+    img: './assets/aa12.png',
+    damage: 8,
+    price: 40000,
+    multiplyer: 0.75,
+    description: 'AA-12',
+    equipped: false,
+  },
+  {
+    id: 12,
+    name: 'Scar-H',
+    img: './assets/scarh.png',
+    damage: 12,
+    price: 60000,
+    multiplyer: 2,
+    description: 'Scar-H',
+    equipped: false,
+  },
+  {
+    id: 13,
+    name: 'Barrett 50-Cal',
+    img: './assets/barrett50.png',
+    damage: 16,
+    price: 80000,
+    multiplyer: 3,
+    description: 'Barrett 50-Cal',
+    equipped: false,
+  },
+  {
+    id: 14,
+    name: 'Browning M1919',
+    img: './assets/m1919.png',
+    damage: 20,
+    price: 100000,
+    multiplyer: 5,
+    description: 'Browning M1919',
+    equipped: false,
+  },
+  {
+    id: 15,
+    name: 'China Lake',
+    img: './assets/chinalake.png',
+    damage: 25,
+    price: 120000,
+    multiplyer: 10,
+    description: 'China Lake',
+    equipped: false,
   },
 ];
+
+export default guns;

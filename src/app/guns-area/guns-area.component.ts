@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GunsComponent } from '../guns/guns.component';
-import { Gun } from '../../assets/guns';
+import guns, { Guns } from '../../assets/guns';
 
 @Component({
   selector: 'app-guns-area',
@@ -11,12 +11,11 @@ import { Gun } from '../../assets/guns';
 })
 export class GunsAreaComponent {
   @Input() cash: number = 0;
-  @Input() guns: Gun[] = [];
-  @Input() currentGun: Gun = this.guns[0];
-  @Output() gunSelected = new EventEmitter<Gun>();
+  @Input() guns: Guns[] = [];
+  @Input() currentGun: Guns = this.guns[0];
+  @Output() gunSelected = new EventEmitter<Guns>();
 
-  onGunSelected(gun: Gun) {
+  onGunSelected(gun: Guns) {
     this.gunSelected.emit(gun);
   }
-
 }
