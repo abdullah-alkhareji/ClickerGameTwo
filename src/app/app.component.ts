@@ -11,5 +11,5 @@ import { PlaygroundComponent } from './playground/playground.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'ClickerGame';
+  title = 'Zombie Killer';
 }
