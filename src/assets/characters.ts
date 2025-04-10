@@ -1,3 +1,4 @@
+
 export interface Characters {
   id: number;
   name: string;
@@ -14,6 +15,7 @@ const characters: Characters[] = [
     id: 1,
     name: 'Captain Price',
     img: './assets/captain-price.png',
+
     damage: 10,
     frequency: 2,
     timer: 20,
@@ -23,7 +25,8 @@ const characters: Characters[] = [
   {
     id: 2,
     name: 'Lana Del Ray',
-    img: './assets/lana.png',
+    img: './assets/Lana-Del-Rey.png',
+
     damage: 20,
     frequency: 3,
     timer: 33,
@@ -33,7 +36,8 @@ const characters: Characters[] = [
   {
     id: 3,
     name: 'Mohammed Hunaidi',
-    img: './assets/hunaidi.png',
+    img: './assets/laughing.png',
+
     damage: 40,
     frequency: 1,
     timer: 10,
@@ -44,6 +48,7 @@ const characters: Characters[] = [
     id: 4,
     name: 'Mishari',
     img: './assets/mishari.png',
+
     damage: 77,
     frequency: 0.7,
     timer: 10,
@@ -54,6 +59,7 @@ const characters: Characters[] = [
     id: 5,
     name: '7moodi',
     img: './assets/7moodi.png',
+
     damage: 150,
     frequency: 0.5,
     timer: 10,
@@ -63,7 +69,8 @@ const characters: Characters[] = [
   {
     id: 6,
     name: 'Snowy',
-    img: './assets/snowy.png',
+    img: './assets/White_Persian_Cat-removebg-preview.png',
+
     damage: 200,
     frequency: 6,
     timer: 15,
@@ -74,6 +81,7 @@ const characters: Characters[] = [
     id: 7,
     name: 'Al6af',
     img: './assets/al6af.png',
+
     damage: 450,
     frequency: 0.3,
     timer: 10,
@@ -84,6 +92,7 @@ const characters: Characters[] = [
     id: 8,
     name: 'Undertaker',
     img: './assets/undertaker.png',
+
     damage: 750,
     frequency: 1,
     timer: 10,
@@ -93,7 +102,8 @@ const characters: Characters[] = [
   {
     id: 9,
     name: 'Captain Majed',
-    img: './assets/majed.png',
+    img: './assets/tsubasa.png',
+
     damage: 1000,
     frequency: 0.5,
     timer: 10,
