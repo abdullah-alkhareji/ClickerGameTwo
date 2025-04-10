@@ -7,6 +7,7 @@ import guns, { Guns } from '../../assets/guns';
 import { CashComponent } from '../cash/cash.component';
 import { interval, Subscription } from 'rxjs';
 import characters, { Characters } from '../../assets/characters';
+import { achievementScore } from '../../assets/achievement';
 
 @Component({
   selector: 'app-clicking-area',
@@ -74,6 +75,7 @@ export class ClickingAreaComponent {
     this.kills = this.kills + this.firePower;
     this.cash = this.cash + this.firePower;
     this.onFilterGuns();
+    this.popupAchievements();
   }
 
   onFirePowerChange(firePower: number) {
@@ -100,5 +102,16 @@ export class ClickingAreaComponent {
 
   onCashChange(cash: number) {
     this.cash = this.cash + cash;
+  }
+
+  popupAchievements() {
+    const found = achievementScore.findIndex(
+      (v) => v.score <= this.kills && v.displayed == false
+    );
+    console.log(found);
+    if (achievementScore[found]) {
+      alert(achievementScore[found].message);
+      achievementScore[found].displayed = true;
+    }
   }
 }

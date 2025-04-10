@@ -24,7 +24,7 @@ const characters: Characters[] = [
   {
     id: 2,
     name: 'Lana Del Ray',
-    img: './assets/Lana-Del-Rey.png',
+    img: './assets/Lana-Del-Rey-PNG.png',
 
     damage: 20,
     frequency: 3,
@@ -35,7 +35,7 @@ const characters: Characters[] = [
   {
     id: 3,
     name: 'Mohammed Hunaidi',
-    img: './assets/laughing.png',
+    img: './assets/laughing.gif',
 
     damage: 40,
     frequency: 1,
@@ -46,7 +46,7 @@ const characters: Characters[] = [
   {
     id: 4,
     name: 'Mishari',
-    img: './assets/mishari.png',
+    img: './assets/fruits.png',
 
     damage: 77,
     frequency: 0.7,
