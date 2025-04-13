@@ -10,8 +10,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class FirePowerComponent {
   @Output() firePowerChange = new EventEmitter<number>();
   @Input() firePower: number = 1;
+  @Input() totalCharachtersDamage: number = 0;
+  @Output() totalCharachtersDamageChange = new EventEmitter<number>();
 
   onFirePowerChange(firePower: number) {
     this.firePowerChange.emit(firePower);
+  }
+
+  onTotalCharachtersDamageChange(totalCharachtersDamage: number) {
+    this.totalCharachtersDamageChange.emit(totalCharachtersDamage);
   }
 }

@@ -4,6 +4,7 @@
   <app-clicker [kills]="kills" (killsChange)="onKillsChange()"></app-clicker>
   <app-counter [kills]="kills"></app-counter>
   <app-fire-power
+    [totalCharachtersDamage]="totalCharachtersDamage"
     class="absolute top-10 right-10"
     [firePower]="firePower"
     (firePowerChange)="onFirePowerChange($event)"

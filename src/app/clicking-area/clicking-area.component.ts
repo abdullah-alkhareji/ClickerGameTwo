@@ -29,6 +29,8 @@ export class ClickingAreaComponent {
   charachters: Characters[] = characters;
   currentCharachters: Characters[] = [];
 
+  totalCharachtersDamage = 0;
+
   guns = guns;
   currentGun: Guns = this.guns[0];
   firePower = this.currentGun.damage;
@@ -98,6 +100,14 @@ export class ClickingAreaComponent {
     this.currentCharachters.push(character);
     this.cash = this.cash - character.price;
     this.onFilterGuns();
+    this.onTotalCharachtersDamageChange();
+  }
+
+  onTotalCharachtersDamageChange() {
+    this.totalCharachtersDamage = this.currentCharachters.reduce(
+      (sum, t) => sum + t.damage,
+      0
+    );
   }
 
   onCashChange(cash: number) {

@@ -6,7 +6,7 @@ export interface Achievements {
 
 export const achievementScore: Achievements[] = [
   {
-    score: 0,
+    score: 1,
     message: "Baby's first step!",
     displayed: false,
   },

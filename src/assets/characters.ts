@@ -16,7 +16,7 @@ const characters: Characters[] = [
     img: './assets/captain-price.png',
 
     damage: 10,
-    frequency: 2,
+    frequency: 0.1,
     timer: 20,
     ability: 'Doubles your clicks',
     price: 200,
